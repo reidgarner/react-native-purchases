@@ -110,7 +110,8 @@ public class RNPurchasesModule extends ReactContextBaseJavaModule implements Upd
 
             @Override
             public void onError(ErrorContainer errorContainer) {
-                promise.reject(errorContainer.getCode() + "", errorContainer.getMessage(), convertMapToWriteableMap(errorContainer.getInfo()));
+                promise.reject(errorContainer.getCode() + "", errorContainer.getMessage(),
+                        convertMapToWriteableMap(errorContainer.getInfo()));
             }
         });
     }
@@ -207,7 +208,8 @@ public class RNPurchasesModule extends ReactContextBaseJavaModule implements Upd
     @Override
     public void onReceived(@NonNull PurchaserInfo purchaserInfo) {
         reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                .emit(RNPurchasesModule.PURCHASER_INFO_UPDATED, convertMapToWriteableMap(MappersKt.map((purchaserInfo))));
+                .emit(RNPurchasesModule.PURCHASER_INFO_UPDATED,
+                        convertMapToWriteableMap(MappersKt.map((purchaserInfo))));
     }
 
     @ReactMethod
@@ -264,7 +266,8 @@ public class RNPurchasesModule extends ReactContextBaseJavaModule implements Upd
 
             @Override
             public void onError(ErrorContainer errorContainer) {
-                promise.reject(errorContainer.getCode() + "", errorContainer.getMessage(), convertMapToWriteableMap(errorContainer.getInfo()));
+                promise.reject(errorContainer.getCode() + "", errorContainer.getMessage(),
+                        convertMapToWriteableMap(errorContainer.getInfo()));
             }
         };
     }
